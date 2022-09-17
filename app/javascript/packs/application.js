@@ -8,6 +8,11 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "jquery"
+import "bootstrap"
+import "popper.js"
+import "../stylesheets/application" //ここの記述の意味は？
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
