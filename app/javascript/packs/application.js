@@ -11,7 +11,8 @@ import "channels"
 import "jquery"
 import "bootstrap"
 import "popper.js"
-import "../stylesheets/application" //ここの記述の意味は？
+import "../stylesheets/application" 
+import '@fortawesome/fontawesome-free/js/all' //ここの記述の意味は？
 
 Rails.start()
 Turbolinks.start()
