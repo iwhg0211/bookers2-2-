@@ -1,2 +1,66 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User info</h1>
+
+<% if user.profile_image.attached? %>
+ <%= image_tag user.profile_image, size: "100×100" %>
+<% else %>
+ <%= image_tag 'no_image', size: "100×100" %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>name</th>
+      <th>introduction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th></th>
+      <th><%= user.name %></th>
+      <th><%= user.introducton %></th>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'edit', edit_user_path(user) %>
+
+<h1>New book</h1>
+
+<%= form_with model: @book, url: books_path do |f| %>
+
+<p>Title</p>
+<%= f.text_field :title  %>
+
+<p>Opinion</p>
+<%= f.text_field :body %>
+
+<%= f.submit 'Create Book' %>
+
+<% end %>
+
+<h1>Books</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                <%= if @user.profile_image_attached? %>
+                 <%= image_tag @user.profile_image, size: "100×100" %>
+                <% else %>
+                 <%= image_tag 'no_image', size: "100×100" %>
+                <% end %>
+                <%= link_to @user.profile_image, user_path(@user) %>
+            </td>
+            <td><%= link_to book.title, book_path(book) %></td>
+            <td><%= book.body %></td>
+        </tr>
+    </tbody>
+</table>
